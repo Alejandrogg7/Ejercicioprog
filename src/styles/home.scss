@@ -1,23 +1,30 @@
-
-body{
-    margin-top: 80px;
-}
-
-.main-container {
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    .card{
-        margin-right: 10px;
-        margin-bottom: 10px;
+$spaces: 20px;
+.my-todo-list {
+    padding: $spaces;
+    width: 400px;
+    margin: $spaces auto;
+    .header {
+        margin-bottom: $spaces;
+        div {
+            display: flex;
+            input {
+                flex: 2;
+                margin-rigth: 10px;
+            }
+        }
     }
 }
 
-.navbar.top-navbar{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100vw;
-    z-index: 10;
+.list-item {
+    display: flex;
+    align-items: center;
+    .left {
+        margin-left: auto;
+    }
+    input {
+        margin-right: 10px;
+    }
+    &.checked {
+        text-decoration: line-through;
+    }
 }
-
