@@ -13,7 +13,7 @@
             <h1>My todo list</h1>
             <div>
                 <input type="text" id="input-task">
-                <button class="btn btn-primary btn-sm" onclick="addTask()">add</button>
+                <button class="btn btn-primary btn-sm" onclick="addTask1()">add</button>
             </div>
             <!-- The core Firebase JS SDK is always required and must be listed first -->
             <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
@@ -26,14 +26,7 @@
         <ul class="list-group">
         </ul>
     </div>
-    <div>
-        <input type="text" id="taskInput">
-        <button onclick="addTask()"> Add</button>
 
-        <ul id="taskConteiner">
-            <li></li>
-        </ul>
-    </div>
 
 </body>
 <script>
@@ -66,7 +59,7 @@
     `);
     }
 
-    function addTask() {
+    function addTask1() {
         const input = document.querySelector('#input-task');
         if (input.value == '') {
             return;
@@ -90,7 +83,7 @@
 
 
     //UI
-    const inputTask = document.querySelector('#taskInput');
+    const inputTask = document.querySelector('#input-task');
     const taskUL = document.querySelector('#taskConteiner');
 
 
@@ -101,7 +94,7 @@
     update()
 
 
-    function addTask() {
+    function addTask1() {
         const name = inputTask.value;
 
         taskRef.push({
