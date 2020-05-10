@@ -24,9 +24,17 @@
 
         </header>
         <ul class="list-group">
-
         </ul>
     </div>
+    <div>
+        <input type="text" id="taskInput">
+        <button onclick="addTask()"> Add</button>
+
+        <ul id="taskConteiner">
+            <li></li>
+        </ul>
+    </div>
+
 </body>
 <script>
     let todoItems = [
@@ -78,6 +86,50 @@
     }
 
     updateUI();
+
+
+
+    //UI
+    const inputTask = document.querySelector('#taskInput');
+    const taskUL = document.querySelector('#taskConteiner');
+
+
+    //DB
+    const database = firebase.database();
+    const taskRef = database.ref('task');
+    taskRef.on('value', pointTasks);
+    update()
+
+
+    function addTask() {
+        const name = inputTask.value;
+
+        taskRef.push({
+            name: name,
+            isComplete: false
+        });
+        inputTask.value = '';
+    }
+
+    function pointTasks(data) {
+        const result = data.val();
+
+        let taskli = ""
+        for (key in result) {
+            const task = result[key];
+            taskLi += `<li>${task.name}</li>`;
+        }
+        taskUL.innerHTML = taskli;
+    }
+
+    function update() {
+        taskRef.update({
+            "-M6lpGHlBmLhR8iKkJA4": {
+                name: "tareaprueba",
+                isCompleted: false
+            }
+        })
+    }
 </script>
 
 </html>
